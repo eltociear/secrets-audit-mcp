@@ -1,0 +1,49 @@
+name: Self-audit
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Smoke test (initialize + tools/list + scan)
+        run: |
+          python3 - <<'EOF'
+          import subprocess, json
+          p = subprocess.Popen(['python3','server.py'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+          def call(m, params=None, i=1):
+              p.stdin.write((json.dumps({'jsonrpc':'2.0','id':i,'method':m,'params':params or {}})+'\n').encode())
+              p.stdin.flush()
+              return json.loads(p.stdout.readline())
+          init = call('initialize',{'protocolVersion':'2024-11-05','capabilities':{},'clientInfo':{'name':'ci','version':'1'}})
+          assert init['result']['serverInfo']['name']=='secrets-audit', init
+          tools = call('tools/list',i=2)['result']['tools']
+          assert {'scan','scan_file','scan_directory'} <= {t['name'] for t in tools}
+          r = call('tools/call',{'name':'scan','arguments':{'content':'AKIAIOSFODNN7EXAMPLE'}},i=3)
+          assert 'CRITICAL' in r['result']['content'][0]['text']
+          print('OK')
+          p.kill()
+          EOF
+      - name: Self-scan repo
+        run: |
+          python3 - <<'EOF'
+          import subprocess, json
+          p = subprocess.Popen(['python3','server.py'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+          def call(m, params=None, i=1):
+              p.stdin.write((json.dumps({'jsonrpc':'2.0','id':i,'method':m,'params':params or {}})+'\n').encode())
+              p.stdin.flush()
+              return json.loads(p.stdout.readline())
+          call('initialize',{'protocolVersion':'2024-11-05','capabilities':{},'clientInfo':{'name':'ci','version':'1'}})
+          r = call('tools/call',{'name':'scan_directory','arguments':{'path':'.'}},i=2)
+          out = r['result']['content'][0]['text']
+          print(out)
+          p.kill()
+          EOF

@@ -1,0 +1,55 @@
+{
+  "name": "@eltociear/secrets-audit-mcp",
+  "version": "1.0.0",
+  "description": "MCP server that detects leaked credentials in source code. 32 provider rules, zero dependencies, single file.",
+  "bin": {
+    "secrets-audit-mcp": "index.js"
+  },
+  "files": [
+    "index.js",
+    "server.py",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "security",
+    "secrets",
+    "secret-scanner",
+    "credential-leak",
+    "static-analysis",
+    "trufflehog-alternative",
+    "gitleaks-alternative",
+    "claude",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "cline",
+    "ai-agent"
+  ],
+  "author": "eltociear",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eltociear/secrets-audit-mcp.git"
+  },
+  "homepage": "https://github.com/eltociear/secrets-audit-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/eltociear/secrets-audit-mcp/issues"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "funding": [
+    {
+      "type": "polar",
+      "url": "https://polar.sh/eltociear"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/eltociear"
+    }
+  ]
+}
