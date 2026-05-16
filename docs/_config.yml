@@ -1,0 +1,10 @@
+title: secrets-audit-mcp
+description: Leaked-secret scanner for MCP servers, AI agent skills, and source trees. 32 provider rules.
+theme: jekyll-theme-cayman
+url: https://eltociear.github.io
+baseurl: /secrets-audit-mcp
+plugins:
+  - jekyll-relative-links
+  - jekyll-seo-tag
+relative_links:
+  enabled: true
