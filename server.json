@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.eltociear/secrets-audit-mcp",
-  "description": "MCP server that detects leaked credentials and secrets — 32+ provider rules (AWS, GitHub, Stripe, OpenAI, Anthropic, Google, Slack, private keys, …). Pure stdlib, zero dependencies, redacts matches.",
+  "description": "Detects leaked secrets & API keys: 32+ provider rules (AWS, GitHub, Stripe, OpenAI…), zero deps.",
   "repository": {
     "url": "https://github.com/eltociear/secrets-audit-mcp",
     "source": "github"
