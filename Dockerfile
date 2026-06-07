@@ -5,6 +5,8 @@ LABEL org.opencontainers.image.description="MCP server detecting leaked credenti
 LABEL org.opencontainers.image.url="https://github.com/eltociear/secrets-audit-mcp"
 LABEL org.opencontainers.image.source="https://github.com/eltociear/secrets-audit-mcp"
 LABEL org.opencontainers.image.licenses="MIT"
+# Required by the official MCP Registry to verify OCI image ownership (must match server.json name).
+LABEL io.modelcontextprotocol.server.name="io.github.eltociear/secrets-audit-mcp"
 
 WORKDIR /app
 COPY server.py /app/server.py

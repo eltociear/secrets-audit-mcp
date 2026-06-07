@@ -23,7 +23,7 @@ import re
 import os
 import base64
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 PROTOCOL_VERSION = "2024-11-05"
 SERVER_NAME = "secrets-audit"
 
