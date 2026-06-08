@@ -133,3 +133,7 @@ adds 50 paid scan credits + Discord + custom rule submission. $20/mo.
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+## Free MCP vs paid x402
+
+This MCP server is **free**. For server-side / batch / no-install use, the same scanner is a pay-per-call **x402** HTTP API: `POST https://eltociear-secrets-audit.hf.space/audit` ($0.01 USDC on Base) and `/audit/url` ($0.03). In the official MCP Registry as `io.github.eltociear/secrets-audit-mcp`.
