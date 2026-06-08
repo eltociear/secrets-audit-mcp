@@ -1,5 +1,7 @@
 # secrets-audit-mcp
 
+[![smithery badge](https://smithery.ai/badge/eltociear/secrets-audit-mcp)](https://smithery.ai/server/eltociear/secrets-audit-mcp) [![MCP Registry](https://img.shields.io/badge/MCP_Registry-active-2da44e)](https://registry.modelcontextprotocol.io)
+
 > MCP server that detects leaked credentials in source code. Zero dependencies. Single file.
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
